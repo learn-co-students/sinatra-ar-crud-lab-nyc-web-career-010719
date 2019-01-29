@@ -18,3 +18,5 @@ group :development do
   gem "sqlite3"
   gem "shotgun"
 end
+
+gem "faker", "~> 1.9"
