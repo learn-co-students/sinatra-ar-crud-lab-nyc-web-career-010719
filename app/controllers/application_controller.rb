@@ -9,21 +9,19 @@ class ApplicationController < Sinatra::Base
     set :method_override, true
   end
 
-# read/create
+# index action
 
   get '/articles' do
     @articles = Article.all
     erb :index
   end
 
+  # new action
   get '/articles/new' do
     erb :new
   end
 
-  get '/articles/:id' do
-    @article = Article.find(params[:id])
-    erb :show
-  end
+  #create action
 
   post '/articles' do
     @article = Article.create(params)
@@ -31,13 +29,20 @@ class ApplicationController < Sinatra::Base
     erb :new
   end
 
-  # update
+  # show action
+  get '/articles/:id' do
+    @article = Article.find(params[:id])
+    erb :show
+  end
+
+  # edit action
   get '/articles/:id/edit' do
     @article = Article.find(params[:id])
 
     erb :edit
   end
 
+  # update action
   patch '/articles/:id' do
     @article = Article.find(params[:id])
     @article.update(params[:article])
@@ -45,7 +50,7 @@ class ApplicationController < Sinatra::Base
     redirect "/articles/#{@article.id}"
   end
 
-  # delete
+  # delete action
   delete "/articles/:id" do
     Article.destroy(params[:id])
     redirect to "/articles"
