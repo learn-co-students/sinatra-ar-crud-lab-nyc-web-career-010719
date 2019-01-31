@@ -1,0 +1,8 @@
+###HOMEPAGE
+
+<% @articles.each do |article| %>
+  <p><%= article.title %></p>
+  <p><%= article.content %></p>
+<% end %>
+
+<a href="/articles/new">Link to Form</a>
