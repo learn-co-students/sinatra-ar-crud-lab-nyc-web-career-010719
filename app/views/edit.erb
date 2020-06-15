@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Edit</title>
+  </head>
+  <body>
+    <form action="/articles/<%= @article.id %>" method="post">
+      <h1>Here's that article you wanted to change</h1>
+      <ul>
+        <li>
+          <input type="hidden" name="_method" value="patch">
+          <label for="title">Title: </label><br>
+        </li>
+        <li>
+          <input id="title" type="text" name="article[title]" value="<%= @article.title %>" /><br>
+          <label for="content">Content: </label><br>
+          <input id="content" type="text" name="article[content]" value="<%= @article.content %>" /><br>
+        </li>
+      </ul>
+      <input type="submit"/>
+    </form>
+  </body>
+</html>
