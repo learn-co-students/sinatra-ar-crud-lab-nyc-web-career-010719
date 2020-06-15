@@ -1,0 +1,11 @@
+<<h1>Show all articles!</h1>
+
+<<p>Hello World</p>
+
+<<p>second article</p>
+
+<% @articles.each do |article| %>
+  <<p><% article.title %></p>
+  <<p><% article.content %></p>
+
+<% end %>
